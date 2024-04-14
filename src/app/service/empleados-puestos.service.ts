@@ -9,7 +9,7 @@ export class EmpleadosPuestosService {
   constructor() { }
 
   obtenerEmpleado(): EmpleadoPuesto[] {
-    // Lee los datos de localStorage
+
     const empleadoJSON = localStorage.getItem(this.empleadoKey);
     if (empleadoJSON) {
       return JSON.parse(empleadoJSON) as EmpleadoPuesto[];
@@ -32,12 +32,12 @@ export class EmpleadosPuestosService {
     const empleado = this.obtenerEmpleado();
     const ids = empleado.map(empleado => empleado.id);
 
-    // Si la lista de IDs no está vacía, calcula el máximo ID
+
     if (ids.length > 0) {
-        const maxId = Math.max(...ids); 
-        return maxId + 1; // Retorna el máximo ID incrementado en 1
+        const maxId = Math.max(...ids);
+        return maxId + 1;
     } else {
-        // Si no hay puestos, comienza con el ID 1
+        
         return 1;
     }
 }
