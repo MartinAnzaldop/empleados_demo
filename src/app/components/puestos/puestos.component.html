@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div class="container mt-3 ">
+  <div class="row">
+    <div class="col-6">
+      <div class="container mt-5">
+        <h1 class="text-center">Lista de puestos</h1>
+        <p>Cantidad de puesto <strong>{{cantidad}}</strong> </p>
+        <input type="text" [(ngModel)]="filtro" placeholder="Filtrar puestos" class="form-control border border-dark">
+        <table class="table mt-4 border border-dark table-hover table-bordered">
+          <thead class="table-success ">
+            <tr class="text-center">
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" *ngFor="let puesto of obtenerPuestosFiltrados()">
+              <td>{{puesto.id}}</td>
+              <td>{{puesto.nombre}}</td>
+              <td><button type="button" class="btn btn-info me-2" (click)="seleccionarPuesto(puesto)">Editar</button>
+                <button type="button" class="btn btn-danger" (click)="eliminarPuesto(puesto.id!)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="container mt-5">
+        <h2 class="text-center">{{titulo}}</h2>
+        <form [formGroup]="PuestoForm" (ngSubmit)="guardarCambios()">
+          <div class="form-group mt-5">
+            <label for="nombre">Nombre:</label>
+            <input type="text" formControlName="nombre" class="form-control border border-dark" id="nombre" name="nombre"
+              placeholder="Ingresa puesto" required>
+            <span *ngIf="PuestoForm.get('nombre')?.hasError('required') && PuestoForm.get('nombre')?.touched"
+              class="text-danger errorLabel">
+              <strong>Nombre</strong> es obligatorio.
+            </span>
+          </div>
+          <div class="col-5 mt-3">
+            <button type="submit" [disabled]="PuestoForm.invalid" class="btn btn-primary">Enviar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

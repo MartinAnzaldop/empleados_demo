@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-6">
+      <div class="container mt-5">
+        <h1 class="text-center">Lista de personas</h1>
+        <p>Cantidad de personas: <strong>{{cantidad}}</strong></p>
+        <input type="text" [(ngModel)]="filtro" placeholder="Filtrar personas" class="form-control border border-dark">
+        <table class="table mt-4 border border-dark table-hover table-bordered">
+          <thead class="table-success ">
+            <tr class="text-center">
+              <th>Id</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha de nacimiento</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-center" *ngFor="let persona of obtenerPersonasFiltradas()">
+              <td>{{persona.id}}</td>
+              <td>{{persona.nombre}}</td>
+              <td>{{persona.apellido}}</td>
+              <td>{{persona.fechaNacimiento}}</td>
+              <td>
+                <button type="button" class="btn btn-info" (click)="seleccionarPersona(persona)">Editar</button>
+                <button type="button" class="btn btn-danger mt-2" (click)="eliminarPersona(persona.id)">Eliminar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="container mt-5">
+        <h2 class="text-center">{{titulo}}</h2>
+        <form [formGroup]="PersonaForm" (ngSubmit)="guardarCambios()">
+          <div class="form-group mt-5">
+            <label for="nombre">Nombre:</label>
+            <input type="text" formControlName="nombre" class="form-control border border-dark" id="nombre" placeholder="Ingrese nombre"  required>
+            <span *ngIf="PersonaForm.get('nombre')?.hasError('required') && PersonaForm.get('nombre')?.touched" class="text-danger">
+              <strong>Nombre</strong> es obligatorio.
+            </span>
+          </div>
+          <div class="form-group mt-3">
+            <label for="apellido">Apellido:</label>
+            <input type="text" formControlName="apellido" class="form-control border border-dark" id="apellido" placeholder="Ingrese apellido" required>
+            <span *ngIf="PersonaForm.get('apellido')?.hasError('required') && PersonaForm.get('apellido')?.touched" class="text-danger">
+              <strong>Apellido</strong> es obligatorio.
+            </span>
+          </div>
+          <div class="form-group mt-3">
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" formControlName="fechaNacimiento" class="form-control border border-dark" id="fechaNacimiento" required>
+            <span *ngIf="PersonaForm.get('fechaNacimiento')?.hasError('required') && PersonaForm.get('fechaNacimiento')?.touched" class="text-danger">
+              <strong>Fecha de nacimiento</strong> es obligatoria.
+            </span>
+          </div>
+          <div class="col-5 mt-3">
+            <button type="submit" [disabled]="PersonaForm.invalid" class="btn btn-primary">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
