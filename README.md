@@ -1,27 +1,32 @@
-# EmpleadosDemo
+# Empleados Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+Este es un proyecto de demostración construido con Angular 14.2.13 y Bootstrap. El proyecto está diseñado para gestionar información sobre empleados.
 
-## Development server
+## Características
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Interfaz de usuario intuitiva y amigable.
+- Gestión de empleados, incluyendo la capacidad de agregar, editar y eliminar empleados desde el localStorage.
+- Desplegado en Netlify para su visualización en vivo.
 
-## Code scaffolding
+## Clonar e Instalar
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Clonar el repositorio**:
 
-## Build
+    git clone https://github.com/MartinAnzaldop/empleados_demo.git
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. **Instalar paquetes**:
 
-## Running unit tests
+    cd empleados_demo
+    npm install
+    
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. **Correr la aplicación**:
 
-## Running end-to-end tests
+    npm s --o
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Despliegue
 
-## Further help
+El proyecto está desplegado en Netlify y se puede ver en la siguiente URL:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+[Visualizar la aplicación](https://661b69e6740ddc25edde1abd--deluxe-empanada-9efce9.netlify.app/Personas)
+
