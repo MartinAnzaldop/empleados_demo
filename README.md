@@ -22,7 +22,7 @@ Este es un proyecto de demostración construido con Angular 14.2.13 y Bootstrap.
 
 3. **Correr la aplicación**:
 
-    npm s --o
+    ng s --o
 
 ## Despliegue
 
