@@ -17,10 +17,11 @@ Este es un proyecto de demostración construido con Angular 14.2.13 y Bootstrap.
 2. **Instalar paquetes**:
 
     cd empleados_demo
+   
     npm install
     
 
-3. **Correr la aplicación**:
+4. **Correr la aplicación**:
 
     ng s --o
 
